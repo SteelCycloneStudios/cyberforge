@@ -1,0 +1,130 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberforge Games Collection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settingsStyles.css">
+</head>
+<body>
+
+<button class="app-menu-button">
+    <div class="app-menu-button-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="app-menu-button-text">Menu</div>
+</button><br />
+
+<div class="app-side-panel">
+    <button class="app-menu-item play-game">Games</button>
+    <button class="app-menu-item">Media</button>
+    <button class="app-menu-item">Shop</button>
+    <button class="app-menu-item" id="settingsButton">Settings</button>
+    <button class="app-menu-item" id="backToTitleButton">Back to Title</button>
+</div>
+
+<div class="side-menu">
+    <button class="menu-toggle" onclick="toggleSideMenu()">☰</button>
+    <div class="genre-list" id="genreList">
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=15&num=50&page=1">All Games</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&page=1">Action</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=4&page=1">Adventure</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=12&page=1">Multiplayer</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=13&page=1">Puzzle</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=14&page=1">Racing</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=15&page=1">Shooting</a>
+        <a href="#" data-url="https://gamemonetize.com/feed.php?format=0&category=17&page=1">Sports</a>
+    </div>
+</div>
+
+<div class="filter-bar">
+    <input type="text" id="searchInput" placeholder="Search games...">
+</div>
+
+<div class="games-grid" id="gamesContainer">
+</div>
+
+<div id="settingsPage" class="settings-page">
+    <h2>Settings</h2>
+    <button class="app-menu-item" id="audioButton">Audio</button>
+    <button class="app-menu-item" id="themesButton">Themes</button>
+    <button class="app-menu-item" id="backButton">Back</button>
+</div>
+
+<div id="themesPage" class="settings-page">
+    <h2>Themes</h2>
+    <div class="theme-options">
+        <button class="theme-button" data-theme="default">Default</button>
+        <button class="theme-button" data-theme="dark">Dark</button>
+        <button class="theme-button" data-theme="light">Light</button>
+        <button class="theme-button" data-theme="hacker">Hacker</button>
+        <button class="theme-button" data-theme="retro">Retro</button>
+        <button class="theme-button" data-theme="matrix">Matrix</button>
+        <button class="theme-button" data-theme="deus">Deus Ex</button>
+    </div>
+    <button class="app-menu-item" id="themesBackButton">Back</button>
+</div>
+
+<div id="audioPage" class="settings-page">
+    <h2>Audio</h2>
+    <div class="audio-options">
+        <label for="masterVolume">Master Volume:</label>
+        <input type="range" id="masterVolume" min="0" max="100" value="100">
+        <label for="musicVolume">Music Volume:</label>
+        <input type="range" id="musicVolume" min="0" max="100" value="70">
+        <label for="sfxVolume">SFX Volume:</label>
+        <input type="range" id="sfxVolume" min="0" max="100" value="80">
+    </div>
+    <button class="app-menu-item" id="backButton">Back</button>
+</div>
+
+<div id="gameModal" class="modal">
+    <button class="close-modal" onclick="closeModal()">&#xd7;</button>
+    <div class="modal-content">
+        <iframe id="modalGameFrame" class="modal-game-frame" allowfullscreen></iframe>
+        <div class="modal-controls">
+            <button class="control-button" onclick="toggleVolume()">
+                <i class="fas fa-volume-up" id="volumeIcon"></i>
+                </button><input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="100">
+            
+            <button class="control-button" onclick="toggleFullscreen()">
+                <i class="fas fa-expand"></i>
+            </button>
+            <button class="control-button" onclick="saveGameData()">
+                <i class="fas fa-save"></i>
+            </button>
+            <button class="control-button" onclick="restartGame()">
+                <i class="fas fa-redo"></i>
+            </button>
+            <button class="control-button" onclick="shareGame()">
+                <i class="fas fa-share-alt"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="titleScreen" class="title-screen">
+    <h1>Cyberforge</h1>
+    <button id="enterButton" class="enter-button">Enter</button>
+</div>
+
+<button id="fullscreenButton" class="fullscreen-button">
+    <i class="fas fa-expand"></i>
+</button>
+
+<script src="gameData.js"></script>
+<script src="uiEffects.js"></script>
+<script src="gameControls.js"></script>
+<script src="gamepadController.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
